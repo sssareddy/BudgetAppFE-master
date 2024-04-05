@@ -1,0 +1,33 @@
+/* Apply basic styles to the container */
+.container {
+  display: center;
+  justify-content: flex-right;
+}
+
+/* Style the search form on the left */
+.search-form {
+  flex: 1; /* Take up 50% of the container width */
+  flex-direction: row;
+  background-color: #f0f0f0; /* Add a background color if desired */
+  border-left: 500px solid #ccc; /* Add a border to separate from the data table */
+  width: 10px;
+}
+
+
+.table-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.data-table {
+  flex-grow: 1;
+   justify-content: center;
+}
+.showSum {
+color:green;
+text-align:center;
+font-weight:bold
+}
+
+

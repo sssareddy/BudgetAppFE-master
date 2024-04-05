@@ -1,0 +1,48 @@
+<div class="registration-form m-1 p-1">
+<h1 class="header">please Enter {{dialogData.type}}</h1>
+  <form [formGroup]="addPerticularForm">
+    <div class="column">
+      <div class="col-md-6" [style.display]='isItemEnabled'>
+        <mat-form-field appearance="outline">
+          <mat-label [style.display]='perticular'>Select Item</mat-label>
+          <input type="text" [style.display]='perticular' formControlName="itemName" matInput placeholder="Item">
+        </mat-form-field>
+        </div>
+      <div class="col-md-6" [style.display]='isCategoryEnabled'>
+        <mat-form-field appearance="outline">
+          <mat-label>Select Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categoryList" [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+       <div class="col-md-6" [style.display]='isNewCategory'>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter Category</mat-label>
+           <input type="text"  formControlName="category" matInput placeholder="Category">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6" [style.display]='isCategoryEnabled'>
+          <mat-checkbox (change)="categoryCheck($event.checked)">
+      New Category
+    </mat-checkbox>
+      </div>
+      <div class="col-md-6" [style.display]='ispurchaseModeEnabled'>
+         <mat-form-field appearance="outline">
+          <mat-label>Purchase Mode</mat-label>
+          <input type="text" formControlName="purchaseMode" matInput placeholder="Purchase Mode">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6" [style.display]='ispaymentModeEnabled'>
+       <mat-form-field appearance="outline">
+          <mat-label>Payment Mode</mat-label>
+          <input type="text" formControlName="paymentMode" matInput placeholder="Payment Mode">
+        </mat-form-field>
+      </div>
+    </div>
+      <button (click)="submit()" mat-raised-button color="accent" [mat-dialog-close]="true">Submit</button>
+         <button mat-raised-button color="accent" [mat-dialog-close]='true'>Cancel</button>
+  </form>
+</div>

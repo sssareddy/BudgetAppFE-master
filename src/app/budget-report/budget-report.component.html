@@ -1,0 +1,61 @@
+<div class="table-container">
+ <form [formGroup]="searchForm">
+   <div class="col-md-6" >
+        <mat-form-field appearance="outline">
+          <mat-label>Select Months</mat-label>
+          <mat-select formControlName="selectedMonths" multiple>
+            <mat-option *ngFor="let month of monthList" [value]="month" >
+              {{month}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+ <button (click)="getReportMultiMonth()" mat-raised-button color="accent" >Get Report</button>
+<div *ngIf="reportResponse" [style.display]='showReport'>
+
+  <div class="container">
+    <div class="div1">
+      <h3>Item Map:</h3>
+      <ul>
+        <li *ngFor="let item of reportResponse.itemMap | keyvalue">
+          {{ item.key }}: {{ item.value }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="div2">
+      <h3>Category Map:</h3>
+      <ul>
+        <li *ngFor="let category of reportResponse.categoryMap | keyvalue">
+          {{ category.key }}: {{ category.value }}
+        </li>
+      </ul>
+    </div>
+
+      <div class="div3">
+      <h3>Category Map:</h3>
+      <ul>
+        <li *ngFor="let purchaseMode of reportResponse.purchaseModeMap | keyvalue">
+          {{ purchaseMode.key }}: {{ purchaseMode.value }}
+        </li>
+      </ul>
+    </div>
+    <div class="div4">
+      <h3>Category Map:</h3>
+      <ul>
+        <li *ngFor="let paymentMode of reportResponse.paymentModeMap | keyvalue">
+          {{ paymentMode.key }}: {{ paymentMode.value }}
+        </li>
+      </ul>
+    </div>
+      <div class="div5">
+      <h3>Category Map:</h3>
+      <ul>
+        <li *ngFor="let purchaseDate of reportResponse.purchaseDateMap | keyvalue">
+          {{ purchaseDate.key }}    :   {{ purchaseDate.value }}
+        </li>
+      </ul>
+    </div>
+      </div>
+    <!-- Repeat a similar pattern for other maps -->
+</div>

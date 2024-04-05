@@ -1,0 +1,48 @@
+<div class="table-container">
+<form [formGroup]="perticularForm">
+ <mat-form-field appearance="outline">
+          <mat-label>Select Perticular</mat-label>
+          <mat-select formControlName="perticularType" >
+            <mat-option *ngFor="let list of perticularTypes" [value]="list" >
+              {{list}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br/>
+            <button (click)="getPerticularsList()" mat-raised-button color="accent">Submit</button>
+        </form>
+</div>
+<div [style.display]='showTable'>
+<table mat-table [dataSource]="dataSource">
+      <!-- Displaying columns -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="editableName">
+        <th mat-header-cell *matHeaderCellDef>Perticular</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="!element.editing; else editMode">
+            {{ element.name }}
+            <button mat-icon-button (click)="startEditing(element)" >
+              <mat-icon mat-raised-button color="accent">edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="savePerticular(element)">
+              <mat-icon mat-raised-button color="warn">save</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deletePerticular(element.perticularId)">
+              <mat-icon mat-raised-button color="primary">delete</mat-icon>
+            </button>
+          </div>
+          <ng-template #editMode>
+            <mat-form-field>
+              <input matInput [(ngModel)]="element.name" (blur)="stopEditing(element)"/>
+            </mat-form-field>
+          </ng-template>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </div>

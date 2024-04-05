@@ -1,0 +1,13 @@
+<div>
+   <p [style.display]='showSpinner'>File Upload In Progress.....</p>
+   <p [style.display]='uploadFailed'>File Upload Failed.....</p>
+    <p [style.display]='showStatus'>{{uploadStatus}}</p>
+     <p [style.display]='fileCheck'>Please Upload File.....</p>
+    <mat-label>Choose File</mat-label>
+    <input   type="file" (change)="onFileSelected($event)" formControlName="selectedFile"><br/>
+
+  <br/>
+  <button mat-raised-button color="primary" (click)="uploadFile()">Upload Budget</button>&nbsp;
+   <button mat-raised-button color="primary" (click)="uploadPerticulars()">Upload Perticulars</button><br/>
+    <button mat-raised-button color="primary" (click)="exportBudget()">Export Budget</button>
+</div>

@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <a routerLink="/home" [class]="homeLink" routerLinkActive='active' (click)="activateLink('home')">Home</a>
+  <span class="example-spacer"></span>
+  <a routerLink="/list" [class]="searchLink" (click)="activateLink('search')">Search Budget</a>
+  <span class="example-spacer"></span>
+  <a routerLink="/report" [class]="reportLink" (click)="activateLink('report')">Report</a>
+  <span class="example-spacer"></span>
+  <a routerLink="/bulkUpload" [class]="uploadLink" (click)="activateLink('upload')">Bulk Upload</a>
+    <span class="example-spacer"></span>
+  <a routerLink="/perticularMgmt" [class]="mgmtLink" (click)="activateLink('mgmt')">Perticular Management</a>
+    <span class="example-spacer"></span>
+  <a routerLink="/visualReports" [class]="chartLink" (click)="activateLink('chart')">Visual Reports</a>
+</mat-toolbar>
+<div style="height:100%" class="container mt-4">
+  <router-outlet> </router-outlet>
+</div>
+
+<!-- <div style="background-color: #e53935;color:#fff;" class="container-fluid">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+
+     <span class="mb-3 mb-md-0 text-light">© 2023 Fitness First, Inc</span> 
+    </div>
+
+    <ul class="col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></li>
+      <li class="ms-3"><i class="fa fa-2x fa-facebook-official" aria-hidden="true"></i></li>
+      <li class="ms-3"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></li>
+    </ul>
+  </footer>
+</div> -->
+
+<lib-ng-toast></lib-ng-toast>
+<ng-confirm></ng-confirm>

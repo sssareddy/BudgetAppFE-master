@@ -1,0 +1,84 @@
+<div class="logo text-center">
+  <img width="200" src="assets/budget1.gif" alt="">
+  <p class="alignSum">This Month:{{thisMonthSum}}</p>
+   <p class="alignSum">Today:{{todaySum}}</p>
+</div>
+
+<div class="registration-form m-1 p-1">
+<p [style.display]='isErrorExists' class="error">{{errorDetail}}</p>
+  <form [formGroup]="registrationForm">
+    <div class="row">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Select Item</mat-label>
+          <mat-select formControlName="itemName" (ngModelChange)="getCategoryForItem()">
+            <mat-option *ngFor="let item of itemList" [value]="item" >
+              {{item}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="col-md-6">  <a class="hyperlink" (click)="openAddEditEmpForm('item')" target="_blank">add Item</a></div>
+         <div class="hidden">
+        <mat-form-field appearance="outline">
+         <input type="number" formControlName="id" matInput placeholder="Id">
+        </mat-form-field>
+        </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Select Category</mat-label>
+          <mat-select formControlName="categoryName" [(ngModel)]="itemCategory">
+            <mat-option *ngFor="let category of categoryList" [value]="category">
+              {{category}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">  <a class="hyperlink" (click)="openAddEditEmpForm('category')" target="_blank">add Category</a></div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <input type="number" formControlName="price" matInput placeholder="mobile">
+          <mat-icon matSuffix>money</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">  </div>
+      <div class="col-md-6">
+         <mat-form-field appearance="outline">
+          <mat-label>Purchase Date</mat-label>
+          <input formControlName="purchaseDate" matInput [matDatepicker]="picker" [(ngModel)]="defaultDate" [matDatepickerFilter]="futureDateFilter">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">  </div>
+      <div class="col-md-6">
+         <mat-form-field appearance="outline">
+          <mat-label>Purchase Mode</mat-label>
+          <mat-select formControlName="purchaseMode">
+            <mat-option *ngFor="let purchaseMode of purchaseModeList" [value]="purchaseMode">
+              {{purchaseMode}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">  <a class="hyperlink" mat-button (click)="openAddEditEmpForm('purchaseMode')" target="_blank">add Purchase Mode</a></div>
+      <div class="col-md-6">
+       <mat-form-field appearance="outline">
+          <mat-label>Payment Mode</mat-label>
+          <mat-select formControlName="paymentMode">
+            <mat-option *ngFor="let paymentMode of paymentModeList" [value]="paymentMode">
+              {{paymentMode}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">  <a class="hyperlink" mat-button (click)="openAddEditEmpForm('paymentMode')" target="_blank">add Payment Mode</a></div>
+    </div>
+    <button *ngIf="!isUpdateActive" (click)="submit()" mat-raised-button color="accent">Submit</button>
+    <button *ngIf="isUpdateActive" (click)="update()" mat-raised-button color="accent">Update</button>
+  </form>
+  <div [style.display]='showChild'><app-root [receivedLink]="inputLink"></app-root></div>
+</div>

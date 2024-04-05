@@ -1,0 +1,39 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-form-field {
+  width: 100%;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+.alignSum {
+  margin-left:1000px;
+  color:green;
+font-weight: bold;
+}
+.hyperlink
+{
+  margin-top:30px;
+  color:purple;
+  text-decoration: underline;
+}
+
+ a:hover {
+  color: hotpink;
+  background-color:white;
+}
+.error {
+  color:red;
+}
+.hidden {
+  display:none;
+}

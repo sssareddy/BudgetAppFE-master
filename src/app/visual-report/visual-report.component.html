@@ -1,0 +1,68 @@
+<!--<div style="display: block">
+  <canvas baseChart 
+          [datasets]="barChartData" 
+          [labels]="barChartLabels" 
+          [options]="barChartOptions" 
+          [legend]="barChartLegend" 
+          [chartType]="barChartType">
+  </canvas>
+</div> -->
+<div class="container">
+<form [formGroup]="chartForm">
+ <div class="column">
+      <div class="col-md-3">
+ <mat-form-field appearance="outline">
+          <mat-label>Select Perticular</mat-label>
+          <mat-select formControlName="perticularType" (selectionChange)="onPerticularChange()" >
+            <mat-option *ngFor="let list of perticularTypes" [value]="list" (onchange)="onPerticularChange()">
+              {{list}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+        </div>
+    <br/>
+        <div class="column">
+      <div class="col-md-1">
+        <mat-form-field appearance="outline" [style.display]='showMonths'>
+          <mat-label>Select Month</mat-label>
+          <mat-select formControlName="month" >
+            <mat-option *ngFor="let months of monthsList" [value]="months" >
+              {{months}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+      </div>
+      <div class="column">
+      <div class="col-md-3">
+        <mat-form-field appearance="outline" [style.display]='showYears'>
+          <mat-label>Select Year</mat-label>
+          <mat-select formControlName="year" >
+            <mat-option *ngFor="let years of yearsList" [value]="years" >
+              {{years}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+      </div>
+
+    <mat-radio-group formControlName="frequency" (change)="onPerticularChange()" [style.display]='showMonthYear'>
+    <mat-radio-button value="Month">Month</mat-radio-button>
+    <mat-radio-button value="Year">Year</mat-radio-button><br/>
+  </mat-radio-group>
+  <div class="column">
+      <div class="col-md-3">
+         <mat-radio-group formControlName="chartType">
+    <mat-radio-button value="bar">Bar</mat-radio-button>
+    <mat-radio-button value="line">Line</mat-radio-button>
+    <mat-radio-button value="pie">Pie</mat-radio-button>
+     </mat-radio-group>
+    </div>
+    </div>
+            <button (click)="getChartOptions()" mat-raised-button color="accent">Submit</button>
+        </form>
+</div>
+<div style="width: 250%;" [style.display]='showChart'>
+  <canvas id="myChart"></canvas>
+</div>
