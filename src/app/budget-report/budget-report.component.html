@@ -17,7 +17,7 @@
     <div class="div1">
       <h3>Item Map:</h3>
       <ul>
-        <li *ngFor="let item of reportResponse.itemMap | keyvalue">
+        <li *ngFor="let item of reportResponse.itemMap | keepOrder">
           {{ item.key }}: {{ item.value }}
         </li>
       </ul>
@@ -26,30 +26,30 @@
     <div class="div2">
       <h3>Category Map:</h3>
       <ul>
-        <li *ngFor="let category of reportResponse.categoryMap | keyvalue">
+        <li *ngFor="let category of reportResponse.categoryMap | keepOrder">
           {{ category.key }}: {{ category.value }}
         </li>
       </ul>
     </div>
 
       <div class="div3">
-      <h3>Category Map:</h3>
+      <h3>Purchase Mode Map:</h3>
       <ul>
-        <li *ngFor="let purchaseMode of reportResponse.purchaseModeMap | keyvalue">
+        <li *ngFor="let purchaseMode of reportResponse.purchaseModeMap | keepOrder">
           {{ purchaseMode.key }}: {{ purchaseMode.value }}
         </li>
       </ul>
     </div>
     <div class="div4">
-      <h3>Category Map:</h3>
+      <h3>Payment Mode Map:</h3>
       <ul>
-        <li *ngFor="let paymentMode of reportResponse.paymentModeMap | keyvalue">
+        <li *ngFor="let paymentMode of reportResponse.paymentModeMap | keepOrder">
           {{ paymentMode.key }}: {{ paymentMode.value }}
         </li>
       </ul>
     </div>
       <div class="div5">
-      <h3>Category Map:</h3>
+      <h3>Purchase Date Map:</h3>
       <ul>
         <li *ngFor="let purchaseDate of reportResponse.purchaseDateMap | keyvalue">
           {{ purchaseDate.key }}    :   {{ purchaseDate.value }}

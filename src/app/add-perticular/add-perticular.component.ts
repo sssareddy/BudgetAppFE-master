@@ -5,6 +5,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { PerticularService } from '../service/PerticularService';
 import { GenericResponse } from '../models/GenericResponse';
 import { ItemService } from '../service/ItemService';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AddPerticularComponent implements OnInit {
   perticular:string='';
     response!:GenericResponse;
   addPerticularForm!: FormGroup;
+  filteredOptions: Observable<string[]>;
   categoryList: string[] = ["Vegitables", "Fruits", "Kirana"];
    isItemEnabled:string="none";
     isCategoryEnabled:string='none';

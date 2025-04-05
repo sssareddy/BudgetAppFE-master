@@ -37,6 +37,8 @@ import { BulkUploadComponentComponent } from './bulk-upload-component/bulk-uploa
 import { PerticularManagementComponent } from './perticular-management/perticular-management.component';
 import { VisualReportComponent } from './visual-report/visual-report.component';
 import { ChartsModule  } from 'ng2-charts';
+import { KeepOrderPipe } from './keep-order.pipe';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const  MY_DATE_FORMATS: MatDateFormats = {
   parse: {
@@ -61,7 +63,9 @@ const  MY_DATE_FORMATS: MatDateFormats = {
     BudgetReportComponent,
     BulkUploadComponentComponent,
     PerticularManagementComponent,
-    VisualReportComponent
+    VisualReportComponent,
+    KeepOrderPipe
+
   ],
   imports: [
     BrowserModule,
@@ -91,7 +95,8 @@ const  MY_DATE_FORMATS: MatDateFormats = {
     ChartsModule ,
 
     NgToastModule,
-    NgConfirmModule
+    NgConfirmModule,
+     MatAutocompleteModule
   ],
 providers: [
      { provide: MAT_DIALOG_DATA, useValue: {} },

@@ -21,7 +21,7 @@ constructor(private itemService:ItemService,private fb: FormBuilder) {
   perticularTypes:string[]=['Yearly','Monthly','item','category','purchaseMode','paymentMode'];
   monthsList:string[]=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   showMonths:string;
-   yearsList:string[]=['2024','2023'];
+   yearsList:string[]=['2025','2024','2023'];
     showYears:string;
    chartForm!: FormGroup;
    showMonthYear:string

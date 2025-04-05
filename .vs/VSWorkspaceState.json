@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\add-perticular",
+    "\\src\\app\\budget-report",
+    "\\src\\app\\create-registration",
+    "\\src\\app\\visual-report"
   ],
-  "SelectedNode": "\\src",
+  "SelectedNode": "\\src\\app\\visual-report\\visual-report.component.ts",
   "PreviewInSolutionExplorer": false
 }

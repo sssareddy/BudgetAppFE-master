@@ -11,7 +11,10 @@ import { Item } from '../models/Item';
 import { MatDialog,MatDialogRef  } from '@angular/material/dialog';
 import { MAT_DATE_FORMATS, MatDateFormats } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
-import {AppComponent} from '../app.component'
+import {AppComponent} from '../app.component';
+import { map, startWith } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 
 import * as moment from 'moment-timezone';
@@ -44,6 +47,7 @@ export class CreateRegistrationComponent implements OnInit  {
   selectedItem:string;
   inputLink:string;
   showChild:string='none';
+  filterText: string = '';
   defaultDate = new Date();
   futureDateFilter= (date: Date | null): boolean => {
     const today = new Date();
@@ -78,6 +82,7 @@ export class CreateRegistrationComponent implements OnInit  {
   constructor(private fb: FormBuilder, private api: ApiService, private itemService:ItemService,private toastService: NgToastService, private activatedRoute: ActivatedRoute,  private _dialog: MatDialog,private router: Router) {
 
   }
+
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
       id:[''],
@@ -86,7 +91,7 @@ export class CreateRegistrationComponent implements OnInit  {
       price: [''],
       purchaseDate:[],
       purchaseMode:[''],
-      paymentMode: ['']
+      paymentMode: [''],
      
     });
     this.itemService.getPerticularsList("All")
@@ -96,6 +101,7 @@ export class CreateRegistrationComponent implements OnInit  {
        this.purchaseModeList=res.purchaseModeList;
        this.paymentModeList=res.paymentModeList;
       });
+
    /* this.activatedRoute.params.subscribe(val => {
       this.userIdToUpdate = val['id'];
       if (this.userIdToUpdate) {
@@ -140,7 +146,6 @@ export class CreateRegistrationComponent implements OnInit  {
         this.itemCategory='undefined';
          this.registrationForm.reset();
   }
-
   getItemsCurrentMonth() {
      this.itemService.getItemsCurrentMonth()
       .subscribe(res => {
